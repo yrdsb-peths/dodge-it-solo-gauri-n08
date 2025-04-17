@@ -8,7 +8,13 @@ public class Banana extends Actor
         
         if(getX() <= 0) {
             resetBanana();
-        }   
+        }
+        
+        if(isTouching(Elephant.class)){
+            Skull skull = new Skull();
+            getWorld().addObject(skull, 250, 150);
+            getWorld().removeObject(this);
+        }
     }
     
     public void resetBanana() {
